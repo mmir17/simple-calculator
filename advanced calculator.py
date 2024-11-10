@@ -36,16 +36,20 @@ for i in split_input:
     else:
         operation.append(i)  # otherwise append to the list of operations
 
-for i in number:
-    for j in operation:
-        n1 = i
-        n2 = i + 1
+for i in number:    # iterate through the numbers
+    for j in operation: # iterate through the operations
+        n1 = i  # first number
+        n2 = i + 1  # second number
         if j == "+":
-            print(add(n1, n2))
+            result = add(n1, n2)
         elif j == "-":
-            print(subtract(n1, n2))
+            result = subtract(n1, n2)
         elif j == "*":
-            print(multiply(n1, n2))
+            result = multiply(n1, n2)
         elif j == "/":
-            print(divide(n1, n2))
+            result = divide(n1, n2)
+        j += 1
+    i += 2
+
+print(result)  # print answer
 
