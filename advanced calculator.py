@@ -23,4 +23,15 @@ def divide(x, y):
         print('error!')  # condition for dividing by zero
 
 
-user_input = input("Please enter the equation you would like to solve:")
+user_input = input("Please enter the equation you would like to solve:")  # get equation
+split_input = user_input.split  # split equation at every space
+
+number = []
+operation = []
+
+for i in split_input:
+    if split_input.index(i) % 2:  # if index evenly divisible by 2, then it's a number
+        i = int(i)  # turn number into an integer
+        number.append(i)  # append to the list of numbers
+    else:
+        operation.append(i)  # otherwise append to the list of operations
