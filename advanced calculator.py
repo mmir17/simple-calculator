@@ -35,3 +35,17 @@ for i in split_input:
         number.append(i)  # append to the list of numbers
     else:
         operation.append(i)  # otherwise append to the list of operations
+
+for i in number:
+    for j in operation:
+        n1 = i
+        n2 = i + 1
+        if j == "+":
+            print(add(n1, n2))
+        elif j == "-":
+            print(subtract(n1, n2))
+        elif j == "*":
+            print(multiply(n1, n2))
+        elif j == "/":
+            print(divide(n1, n2))
+
