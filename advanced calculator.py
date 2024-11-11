@@ -23,33 +23,36 @@ def divide(x, y):
         print('error!')  # condition for dividing by zero
 
 
-user_input = input("Please enter the equation you would like to solve:")  # get equation
-split_input = user_input.split  # split equation at every space
+user_input = input("Please enter the equation you would like to solve: ")  # get equation
+split_input = enumerate(user_input.split())  # split equation at every space
+print(split_input)
 
 number = []
 operation = []
 
-for i in split_input:
-    if split_input.index(i) % 2:  # if index evenly divisible by 2, then it's a number
-        i = int(i)  # turn number into an integer
-        number.append(i)  # append to the list of numbers
+for i, num in split_input:
+    if i % 2 == 0:  # if index evenly divisible by 2, then it's a number
+        num = int(num)  # turn number into an integer
+        number.append(num)  # append to the list of numbers
     else:
-        operation.append(i)  # otherwise append to the list of operations
+        operation.append(num)  # otherwise append to the list of operations
 
-for i in number:    # iterate through the numbers
-    for j in operation: # iterate through the operations
-        n1 = i  # first number
-        n2 = i + 1  # second number
-        if j == "+":
-            result = add(n1, n2)
-        elif j == "-":
+print(number)
+print(operation)
+for i in range(len(number)):  # iterate through the numbers
+    n1 = number[0]  # first number
+    n2 = number[1]  # second number
+    for j in range(len(operation)):  # iterate through the operations
+        opp = operation[0]
+        if opp == "+":
+            n1 = add(n1, n2)
+        elif opp == "-":
             result = subtract(n1, n2)
-        elif j == "*":
-            result = multiply(n1, n2)
-        elif j == "/":
-            result = divide(n1, n2)
+        elif opp == "*":
+            n1 = multiply(n1, n2)
+        elif opp == "/":
+            n1 = divide(n1, n2)
         j += 1
     i += 2
 
-print(result)  # print answer
-
+print(n1)  # print answer
